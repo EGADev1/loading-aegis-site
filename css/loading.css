@@ -1,0 +1,285 @@
+@font-face {
+  font-family: "Golos Text";
+  src: local("Golos Text"), url("../assets/golos-text.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Golos Text";
+  src: local("Golos Text Medium"), url("../assets/golos-text-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: local("JetBrains Mono"), url("../assets/jetbrains-mono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #0E0E0F;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Golos Text", Arial, sans-serif;
+  color: #9A9A96;
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0E0E0F;
+  background-image: url("../assets/bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-animation: photoDrift 20000ms ease-in-out infinite alternate;
+  animation: photoDrift 20000ms ease-in-out infinite alternate;
+}
+
+.scrim {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  -webkit-animation: scrimIn 1200ms ease-out both;
+  animation: scrimIn 1200ms ease-out both;
+}
+
+.status {
+  position: absolute;
+  bottom: 100px;
+  left: 64px;
+  width: 320px;
+  height: 60px;
+}
+
+.stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 10px;
+  line-height: 13px;
+  letter-spacing: 1.2px;
+  color: #8C8C88;
+  white-space: nowrap;
+  -webkit-animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both;
+  animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both;
+}
+
+.status-line {
+  position: absolute;
+  top: 21px;
+  left: 0;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: #F2F2EE;
+  white-space: nowrap;
+  -webkit-animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 260ms both;
+  animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 260ms both;
+}
+
+.server {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 11px;
+  line-height: 15px;
+  letter-spacing: 0.8px;
+  color: #8C8C88;
+  white-space: nowrap;
+  -webkit-animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 340ms both;
+  animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 340ms both;
+}
+
+.progress {
+  position: absolute;
+  bottom: 78px;
+  left: 64px;
+  width: 320px;
+  height: 2px;
+  background: #3B3B38;
+  border-radius: 1px;
+  -webkit-animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 420ms both;
+  animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 420ms both;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 198px;
+  height: 2px;
+  background: #F2F2EE;
+  border-radius: 1px;
+  -webkit-animation: fillGrow 1600ms cubic-bezier(0.22, 1, 0.36, 1) 560ms both, fillPulse 2400ms ease-in-out 0ms infinite;
+  animation: fillGrow 1600ms cubic-bezier(0.22, 1, 0.36, 1) 560ms both, fillPulse 2400ms ease-in-out 0ms infinite;
+}
+
+.tip {
+  position: absolute;
+  bottom: 124px;
+  left: 50%;
+  width: 800px;
+  margin-left: -400px;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #9A9A96;
+  -webkit-animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 460ms both;
+  animation: uiIn 640ms cubic-bezier(0.22, 1, 0.36, 1) 460ms both;
+}
+
+@-webkit-keyframes photoDrift {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.035);
+    transform: scale(1.035);
+  }
+}
+
+@keyframes photoDrift {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.035);
+    transform: scale(1.035);
+  }
+}
+
+@-webkit-keyframes scrimIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scrimIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes uiIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(12px);
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes uiIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(12px);
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fillGrow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 198px;
+  }
+}
+
+@keyframes fillGrow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 198px;
+  }
+}
+
+@-webkit-keyframes fillPulse {
+  0% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes fillPulse {
+  0% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.55;
+  }
+}
+
+@media screen and (max-width: 1359px) {
+  .status {
+    left: 40px;
+  }
+
+  .progress {
+    left: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .scrim,
+  .stage,
+  .status-line,
+  .server,
+  .progress,
+  .progress-fill,
+  .tip {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
